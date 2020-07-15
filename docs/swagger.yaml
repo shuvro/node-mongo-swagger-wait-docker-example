@@ -1,0 +1,1437 @@
+openapi: 3.0.0
+info:
+  title: Juridico API
+  version: 1.0.0
+  description: Documentation for SDK API
+servers:
+  - url: 'http://localhost:4516/api/'
+    description: Local server
+  - url: 'http://54.92.141.233:4516/api/'
+    description: Development Server
+paths:
+  '/getCustomerInformation/{carisId}/':
+    get:
+      summary: Get Primary Selected Representative
+      tags:
+        - Step 2
+      parameters:
+        - in: path
+          name: carisId
+          required: true
+          schema:
+            type: string
+            description: Your Caris ID
+      responses:
+        '200':
+          description: Get Representatives
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getCustomerInformationResponse'
+  '/getPoliticalInfo/{carisId}/':
+    get:
+      summary: Get Political Information
+      tags:
+        - Step 3
+      parameters:
+        - in: path
+          name: carisId
+          required: true
+          schema:
+            type: string
+            description: Your Caris ID
+      responses:
+        '200':
+          description: Get Political Information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getPoliticalInfoResponse'
+  '/getfoundOrigin/{carisId}/':
+    get:
+      summary: Get Found Origin
+      tags:
+        - Step 4
+      parameters:
+        - in: path
+          name: carisId
+          required: true
+          schema:
+            type: string
+            description: Your Caris ID
+      responses:
+        '200':
+          description: Get Found Origin
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getFoundOriginResponse'
+  '/getBankingReference/{carisId}/':
+    get:
+      summary: Get Banking References
+      tags:
+        - Step 5
+      parameters:
+        - in: path
+          name: carisId
+          required: true
+          schema:
+            type: string
+            description: Your Caris ID
+      responses:
+        '200':
+          description: Get Banking References
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getBankingReferenceResponse'
+  '/getExpectedActivity/{carisId}/':
+    get:
+      summary: Get Expected Activity
+      tags:
+        - Step 6
+      parameters:
+        - in: path
+          name: carisId
+          required: true
+          schema:
+            type: string
+            description: Your Caris ID
+      responses:
+        '200':
+          description: Get Expected Activity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getExpectedActivityResponse'
+  '/getFiles/{carisId}/':
+    get:
+      summary: Get Upload Files
+      tags:
+        - Step 7
+      parameters:
+        - in: path
+          name: carisId
+          required: true
+          schema:
+            type: string
+            description: Your Caris ID
+      responses:
+        '200':
+          description: Get Upload Files
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getFilesResponse'
+  '/getSignature/{carisId}/':
+    get:
+      summary: Get Signature
+      tags:
+        - Step 8
+      parameters:
+        - in: path
+          name: carisId
+          required: true
+          schema:
+            type: string
+            description: Your Caris ID
+      responses:
+        '200':
+          description: Get Signature
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getSignatureResponse'
+  '/getCountStatus/':
+    get:
+      summary: Get Count Status Summary
+      tags:
+        - Caris Reports
+      responses:
+        '200':
+          description: Get Count Status Summary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getCountStatusResponse'
+  '/getKYCInfo/{carisId}/':
+    get:
+      summary: Get KYC Settings
+      tags:
+        - Caris Reports
+      parameters:
+        - in: path
+          name: carisId
+          required: true
+          schema:
+            type: string
+            description: Your Caris ID
+      responses:
+        '200':
+          description: Get KYC Settings
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getKYCInfoResponse'
+  '/getAllKYC/':
+    get:
+      summary: Get All KYC
+      tags:
+        - Caris Reports
+      responses:
+        '200':
+          description: Get All KYC
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAllKYCResponse'
+  '/getAllByPending/':
+    get:
+      summary: Get All Pending
+      tags:
+        - Caris Reports
+      responses:
+        '200':
+          description: Get All Pending
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAllByPendingResponse'
+  '/getAllByInProgress/':
+    get:
+      summary: Get All In-Progress
+      tags:
+        - Caris Reports
+      responses:
+        '200':
+          description: Get All In-Progress
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAllByInProgressResponse'
+  '/getAllByInReview/':
+    get:
+      summary: Get All In-Review
+      tags:
+        - Caris Reports
+      responses:
+        '200':
+          description: Get All In-Review
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAllByInReviewResponse'
+  '/getAllByApproved/':
+    get:
+      summary: Get All Approved
+      tags:
+        - Caris Reports
+      responses:
+        '200':
+          description: Get All Approved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAllByApprovedResponse'
+  '/getAllByDone/':
+    get:
+      summary: Get All Done
+      tags:
+        - Caris Reports
+      responses:
+        '200':
+          description: Get All Done
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAllByDoneResponse'
+  '/getAllByOpened/':
+    get:
+      summary: Get All Opened
+      tags:
+        - Caris Reports
+      responses:
+        '200':
+          description: Get All Opened
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAllByOpenedResponse'
+  '/getAllBySigned/':
+    get:
+      summary: Get All Signed
+      tags:
+        - Caris Reports
+      responses:
+        '200':
+          description: Get All Signed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAllBySignedResponse'
+  '/getAllByRejected/':
+    get:
+      summary: Get All Rejected
+      tags:
+        - Caris Reports
+      responses:
+        '200':
+          description: Get All Rejected
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAllByRejectedResponse'
+  '/getAllByUserId/{userId}/':
+    get:
+      summary: Get All by UserId
+      tags:
+        - Caris Reports
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+            description: Your UserId
+      responses:
+        '200':
+          description: Get All by UserId
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAllByUserIdResponse'
+  '/getPDFdata/{carisId}/':
+    get:
+      summary: Get PDF data
+      tags:
+        - Misc
+      parameters:
+        - in: path
+          name: carisId
+          required: true
+          schema:
+            type: string
+            description: Your Caris ID
+      responses:
+        '200':
+          description: Get PDF data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getPDFdataResponse'
+  '/getAllAttached/{carisId}/':
+    get:
+      summary: Get All Attachment
+      tags:
+        - Misc
+      parameters:
+        - in: path
+          name: carisId
+          required: true
+          schema:
+            type: string
+            description: Your Caris ID
+      responses:
+        '200':
+          description: Get All Attachment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAllAttachedResponse'
+  '/getAdditionalSigners/{carisId}/':
+    get:
+      summary: Additional Signers
+      tags:
+        - Misc
+      parameters:
+        - in: path
+          name: carisId
+          required: true
+          schema:
+            type: string
+            description: Your Caris ID
+      responses:
+        '200':
+          description: Additional Signers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAdditionalSignersResponse'
+  /login/:
+    post:
+      summary: Do Login
+      tags:
+        - Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/setLogin'
+      responses:
+        '200':
+          description: Login Schema
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getLogin'
+  '/getAdditionalLoginDetails/{carisId}/':
+    get:
+      summary: Get Company Name & Representatives
+      tags:
+        - Login
+      parameters:
+        - in: path
+          name: carisId
+          required: true
+          schema:
+            type: string
+            description: Your Caris ID
+      responses:
+        '200':
+          description: An array of users
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAdditionalLoginDetailsResponse'
+  '/getPrimaryCustomerInformation/{carisId}/':
+    get:
+      summary: Get Primary Selected Representative
+      tags:
+        - Step 1
+      parameters:
+        - in: path
+          name: carisId
+          required: true
+          schema:
+            type: string
+            description: Your Caris ID
+      responses:
+        '200':
+          description: Get Primary Selected Representative
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getPrimaryCustomerInformationResponse'
+  '/setPrimaryCustomerInformation/':
+    post:
+      summary: Set Primary Representative Details
+      tags:
+        - Step 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/setPrimaryCustomerInformation'
+      responses:
+        '200':
+          description: Set Primary Representative Details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/setSuccessResponse'
+  '/getPartners/{carisId}/':
+    get:
+      summary: Get Partners
+      tags:
+        - Step 1
+      parameters:
+        - in: path
+          name: carisId
+          required: true
+          schema:
+            type: string
+            description: Your Caris ID
+      responses:
+        '200':
+          description: Get Partners
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getPartnersResponse'
+components:
+  schemas:
+    setLogin:
+      type: object
+      required:
+        - legalId
+      properties:
+        legalId:
+          type: integer
+      example:
+        legalId: 1234567890
+    getLogin:
+      type: object
+      properties:
+        success:
+          type: integer
+        message:
+          type: string
+      example:
+        success: true
+        message: user found
+        carisId: 4e96caad-0673-4dbc-8fa1-c9705c859e5e
+    setSuccessResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+      example:
+        success: true
+    getAdditionalLoginDetailsResponse:
+      type: object
+      example:
+        success: true
+        message: user found
+        data:
+          additionalRepresentative:
+            - name: Jessica
+              lastname: Shaffer
+              secondLastname: Stephens
+              idType: dimex
+              idNumber: '306'
+              idExpirationDate: 04/28/2020
+              dob: 04/28/2020
+              countryOB: EC
+              nationality: GU
+              sex: Mujer
+              homePhone: '04626633'
+              cellPhone: '80046268'
+              fax: '25277888'
+              email: ruka54645w@mailinator.net
+              profession: Facilis voluptate qu
+              occupation: engineeer
+              maritalStatus: Union Libre
+              countryResidence: Mexico
+              province: Aut nesciunt totam
+              canton: Error tempora aut consect
+              distrit: Omnis ipsum ut consequat
+              poBox: '1004'
+              address: Et qui in quo conseq
+            - name: Kellie Blake
+              lastname: Morton
+              secondLastname: Johns
+              idType: dimex
+              idNumber: '6786786786'
+              idExpirationDate: 07/01/2020
+              dob: 07/02/2020
+              countryOB: AG
+              nationality: AI
+              sex: Hombre
+              homePhone: '04626633'
+              cellPhone: '04626633'
+              fax: '22203239'
+              email: jokepypi@mailinator.net
+              profession: Quia accusamus nisi
+              occupation: engineer
+              maritalStatus: Divorciado
+              countryResidence: Nicaragua
+              province: Aut nesciunt totam
+              canton: Iste iusto velit rem
+              distrit: Excepturi dolorem so
+              poBox: '1004'
+              address: Veniam minus odit r
+            - name: Inga Bray
+              lastname: Newman
+              secondLastname: CETZTFP
+              idType: cédula
+              idNumber: 090909090
+              idExpirationDate: 05/29/2020
+              dob: 05/28/2020
+              countryOB: AI
+              nationality: AL
+              sex: Mujer
+              homePhone: '04626633'
+              cellPhone: '04626633'
+              fax: '34534534'
+              email: tuwyryx@mailinator.net
+              profession: Elit eos et reicie
+              occupation: engineer
+              maritalStatus: Union Libre
+              countryResidence: Nicaragua
+              province: Heredia
+              canton: Iste iusto velit rem
+              distrit: dhaka
+              poBox: '7777'
+              address: Heredia San Franci
+              secundaryEmail: ''
+          _id: 5ed8cb3746bcfd27d039096b
+          companyRegistrationName: Wilson Taylor Inc
+    getPrimaryCustomerInformationResponse:
+      type: object
+      example:
+        success: true
+        message: user found
+        data:
+          additionalRepresentative:
+            - name: Jessica
+              lastname: Shaffer
+              secondLastname: Stephens
+              idType: dimex
+              idNumber: '306'
+              idExpirationDate: 04/28/2020
+              dob: 04/28/2020
+              countryOB: EC
+              nationality: GU
+              sex: Mujer
+              homePhone: '04626633'
+              cellPhone: '80046268'
+              fax: '25277888'
+              email: ruka54645w@mailinator.net
+              profession: Facilis voluptate qu
+              occupation: engineeer
+              maritalStatus: Union Libre
+              countryResidence: Mexico
+              province: Aut nesciunt totam
+              canton: Error tempora aut consect
+              distrit: Omnis ipsum ut consequat
+              poBox: '1004'
+              address: Et qui in quo conseq
+            - name: Kellie Blake
+              lastname: Morton
+              secondLastname: Johns
+              idType: dimex
+              idNumber: '6786786786'
+              idExpirationDate: 07/01/2020
+              dob: 07/02/2020
+              countryOB: AG
+              nationality: AI
+              sex: Hombre
+              homePhone: '04626633'
+              cellPhone: '04626633'
+              fax: '22203239'
+              email: jokepypi@mailinator.net
+              profession: Quia accusamus nisi
+              occupation: engineer
+              maritalStatus: Divorciado
+              countryResidence: Nicaragua
+              province: Aut nesciunt totam
+              canton: Iste iusto velit rem
+              distrit: Excepturi dolorem so
+              poBox: '1004'
+              address: Veniam minus odit r
+            - name: Inga Bray
+              lastname: Newman
+              secondLastname: CETZTFP
+              idType: cédula
+              idNumber: 090909090
+              idExpirationDate: 05/29/2020
+              dob: 05/28/2020
+              countryOB: AI
+              nationality: AL
+              sex: Mujer
+              homePhone: '04626633'
+              cellPhone: '04626633'
+              fax: '34534534'
+              email: tuwyryx@mailinator.net
+              profession: Elit eos et reicie
+              occupation: engineer
+              maritalStatus: Union Libre
+              countryResidence: Nicaragua
+              province: Heredia
+              canton: Iste iusto velit rem
+              distrit: dhaka
+              poBox: '7777'
+              address: Heredia San Franci
+              secundaryEmail: ''
+          partners:
+            - partnerName: Kim Dawson
+              partnerNationality: BT
+              partnerIdentificationNumber: '51667867'
+              partnerParticipationPercentage: '10'
+            - partnerName: Winifred Summers
+              partnerNationality: EE
+              partnerIdentificationNumber: '98087878'
+              partnerParticipationPercentage: '10'
+            - partnerName: Ulysses Stevens
+              partnerNationality: PE
+              partnerIdentificationNumber: '37067867'
+              partnerParticipationPercentage: '10'
+            - partnerName: Adria Mcfadden
+              partnerNationality: KG
+              partnerIdentificationNumber: '61057567'
+              partnerParticipationPercentage: '10'
+            - partnerName: Leonard Vance
+              partnerNationality: VN
+              partnerIdentificationNumber: '66923423'
+              partnerParticipationPercentage: '10'
+          _id: 5ed8cb3746bcfd27d039096b
+          status: opened
+          companyRegistrationName: Wilson Taylor Inc
+          legalId: '1234567890'
+          companyAddress: Heredia San Franci
+          companyCanton: Iste iusto velit rem
+          companyCountryResidence: Nicaragua
+          companyDistrit: dhaka
+          companyFound: 'false'
+          companyPoBox: '7777'
+          companyProvince: Heredia
+          constitutionDate: 05/14/2020
+          economicActivityDetail: Mollitia est sint v
+          tradeName: Nehru Mendez
+          typeOfEconomicActivity: Comercial
+          typeOfLegalEntity: Sociedad de Responsabilidad Limitada
+          typeOfLegalEntityOther: ''
+    getPartnersResponse:
+      type: object
+      example:
+        success: true
+        message: user found
+        data:
+          partners:
+            - partnerName: Kim Dawson
+              partnerNationality: BT
+              partnerIdentificationNumber: '51667867'
+              partnerParticipationPercentage: '10'
+            - partnerName: Winifred Summers
+              partnerNationality: EE
+              partnerIdentificationNumber: '98087878'
+              partnerParticipationPercentage: '10'
+            - partnerName: Ulysses Stevens
+              partnerNationality: PE
+              partnerIdentificationNumber: '37067867'
+              partnerParticipationPercentage: '10'
+            - partnerName: Adria Mcfadden
+              partnerNationality: KG
+              partnerIdentificationNumber: '61057567'
+              partnerParticipationPercentage: '10'
+            - partnerName: Leonard Vance
+              partnerNationality: VN
+              partnerIdentificationNumber: '66923423'
+              partnerParticipationPercentage: '10'
+          _id: 5ed8cb3746bcfd27d039096b
+          status: opened
+    getCustomerInformationResponse:
+      type: object
+      example:
+        success: true
+        message: user found
+        data:
+          additionalRepresentative:
+            - name: Jessica
+              lastname: Shaffer
+              secondLastname: Stephens
+              idType: dimex
+              idNumber: '306'
+              idExpirationDate: 04/28/2020
+              dob: 04/28/2020
+              countryOB: EC
+              nationality: GU
+              sex: Mujer
+              homePhone: '04626633'
+              cellPhone: '80046268'
+              fax: '25277888'
+              email: ruka54645w@mailinator.net
+              profession: Facilis voluptate qu
+              occupation: engineeer
+              maritalStatus: Union Libre
+              countryResidence: Mexico
+              province: Aut nesciunt totam
+              canton: Error tempora aut consect
+              distrit: Omnis ipsum ut consequat
+              poBox: '1004'
+              address: Et qui in quo conseq
+            - name: Kellie Blake
+              lastname: Morton
+              secondLastname: Johns
+              idType: dimex
+              idNumber: '6786786786'
+              idExpirationDate: 07/01/2020
+              dob: 07/02/2020
+              countryOB: AG
+              nationality: AI
+              sex: Hombre
+              homePhone: '04626633'
+              cellPhone: '04626633'
+              fax: '22203239'
+              email: jokepypi@mailinator.net
+              profession: Quia accusamus nisi
+              occupation: engineer
+              maritalStatus: Divorciado
+              countryResidence: Nicaragua
+              province: Aut nesciunt totam
+              canton: Iste iusto velit rem
+              distrit: Excepturi dolorem so
+              poBox: '1004'
+              address: Veniam minus odit r
+            - name: Inga Bray
+              lastname: Newman
+              secondLastname: CETZTFP
+              idType: cédula
+              idNumber: 090909090
+              idExpirationDate: 05/29/2020
+              dob: 05/28/2020
+              countryOB: AI
+              nationality: AL
+              sex: Mujer
+              homePhone: '04626633'
+              cellPhone: '04626633'
+              fax: '34534534'
+              email: tuwyryx@mailinator.net
+              profession: Elit eos et reicie
+              occupation: engineer
+              maritalStatus: Union Libre
+              countryResidence: Nicaragua
+              province: Heredia
+              canton: Iste iusto velit rem
+              distrit: dhaka
+              poBox: '7777'
+              address: Heredia San Franci
+              secundaryEmail: ''
+          _id: 5ed8cb3746bcfd27d039096b
+          status: opened
+          occupation: engineer
+          email: 1
+    getPoliticalInfoResponse:
+      type: object
+      example:
+        success: true
+        message: user found
+        data:
+          _id: 5ed8cb3746bcfd27d039096b
+          pep: 'true'
+          usTaxPayer: 'true'
+          fatcaTin: '3435'
+          crsTin: '3534534535'
+          crsAddress: ertetetertr
+          fepClient: 'false'
+          fepAddress: erter
+          fepName: ertert ert
+          fepTIN: '4534534545'
+          gin: 'false'
+          crsAddress1: sdgsdgdgdgd
+          crsAddress2: ertertertert
+          crsTin1: '9872937498'
+          crsTin2: '8790890890'
+    getFoundOriginResponse:
+      type: object
+      example:
+        success: true
+        message: user found
+        data:
+          foundOrigin:
+            - partnersContribution
+            - financing
+            - normalOperation
+            - investmentManagement
+            - movingFounds
+            - other
+          thirdPartyPicture:
+            - filename: thirdPartyPicture-1591266330105.png
+              path: "/home/aws/kyc-sdk-juridico/public/tmp/kyc/thirdPartyPicture-1591266330105.png"
+              size: 40574
+              mimetype: image/png
+              timestamp: 1591266330148
+            - filename: thirdPartyPicture-1591266330195.jpg
+              path: "/home/aws/kyc-sdk-juridico/public/tmp/kyc/thirdPartyPicture-1591266330195.jpg"
+              size: 107203
+              mimetype: image/jpeg
+              timestamp: 1591266330209
+          activities:
+            - casinos
+            - onlineGaming
+            - notary
+            - accountant
+            - carDealer
+            - realState
+            - materials
+            - armery
+            - jewelry
+            - lawyer
+          _id: 5ed8cb3746bcfd27d039096b
+          heritageName: erter
+          heritageRelationship: ertert
+          heritageAmount: '45,645'
+          pensionAmount: '4,646,546'
+          pensionDate: 05/11/2020
+          movingFoundsName: test
+          movingFoundsCurrency: Colones
+          movingFoundsAmount: '4,545'
+          movingFoundsDetail: details
+          otherDetail: details
+          thirtPartyFounds: 'true'
+          activitiesValidation: 'true'
+    getBankingReferenceResponse:
+      type: object
+      example:
+        success: true
+        message: user found
+        data:
+          bankingReference:
+            - test1
+            - test2
+            - test3
+          mainClients:
+            - client1
+            - client2
+            - client3
+          products:
+            - tc
+            - workCapital
+            - accRegular
+            - accHigh
+            - certification
+            - participationWarranty
+            - accSavings
+            - invoiceDesc
+            - creditPostal
+            - prendary
+            - leasing
+          _id: 5ed8cb3746bcfd27d039096b
+          creditCardLimit: '6,7567'
+          creditCardCurrency: Euros
+          accountCurrency: Colones
+          savingAccountCurrency: Dólares
+          highAccountCurrency: Colones
+          accountCurrency1: ''
+          accountCurrency2: ''
+          highAccountCurrency1: ''
+          highAccountCurrency2: ''
+          savingAccountCurrency1: ''
+          savingAccountCurrency2: ''
+    getExpectedActivityResponse:
+      type: object
+      example:
+        success: true
+        message: user found
+        data:
+          expectedProducts:
+            - incomingTransfers
+            - outgoingTransfers
+            - checks
+            - platform
+            - operationPays
+            - creditCardsPay
+            - sallaryPay
+            - cashDeposit
+            - other
+          _id: 5ed8cb3746bcfd27d039096b
+          productDesc: details
+          estimateCreditAmount: '454'
+          estimateCreditCurrency: Dólares
+          estimateDebitAmount: '23,4234'
+          estimateDebitCurrency: Euros
+          otherProductDesc: details
+    getFilesResponse:
+      type: object
+      example:
+        success: true
+        message: user found
+        data:
+          workDocPic: []
+          idPicFront: []
+          certificationPatrimonialPic: []
+          identificationRepresentativePic:
+            - filename: identificationRepresentativePic-1591975116522.jpg
+              path: "/home/aws/kyc-sdk-juridico/public/tmp/kyc/identificationRepresentativePic-1591975116522.jpg"
+              size: 178869
+              mimetype: image/jpeg
+              timestamp: 1591975116591
+          idPicBack:
+            - filename: idPicBack-1588753471542.jpg
+              path: "/home/aws/KYC-SDK-Cathay/public/tmp/kyc/idPicBack-1588753471542.jpg"
+              size: 134205
+              mimetype: image/jpeg
+              timestamp: 1588753471561
+          publicService: []
+          _id: 5ed8cb3746bcfd27d039096b
+    getSignatureResponse:
+      type: object
+      example:
+        success: true
+        message: user found
+        data:
+          _id: 5ed8cb3746bcfd27d039096b
+          signature:
+            filename: signature-4e96caad-0673-4dbc-8fa1-c9705c859e5e-f0be9dd1-46a0-4d41-9ea1-1e65de0a50b1
+            path: public/tmp/kyc/signature-4e96caad-0673-4dbc-8fa1-c9705c859e5e-f0be9dd1-46a0-4d41-9ea1-1e65de0a50b1
+            size: 0
+            timestamp: 1592376116915
+    getCountStatusResponse:
+      type: object
+      example:
+        success: true
+        data:
+          all: 1445
+          pending: 1444
+          inProgress: 0
+          inReview: 0
+          approved: 0
+          done: 0
+          opened: 1
+          signed: 0
+          rejected: 0
+    getKYCInfoResponse:
+      type: object
+      example:
+        success: true
+        message: user found
+        data:
+          metadata: 1
+          revisions: []
+          rejects: []
+          _id: 5ed8cb3746bcfd27d039096b
+          status: opened
+          createdAt: '2019-10-09T02:59:36.728Z'
+    getAllKYCResponse:
+      type: object
+      example:
+        success: true
+        data:
+          - metadata: 1
+            carisId: 4e96caad-0673-4dbc-8fa1-c9705c859e5e
+            status: opened
+            createdAt: '2019-10-09T02:59:36.728Z'
+            email: 1
+          - metadata: 1
+            carisId: 59482f30-5e8c-4f05-8878-6183b1cf7158
+            status: pending
+            createdAt: '2020-06-08T11:11:43.968Z'
+            email: 1
+          - metadata: 1
+            carisId: ac5e2dc6-b3b1-4ded-930f-068f4e6ebc9f
+            status: pending
+            createdAt: '2020-06-08T11:11:43.956Z'
+            email: 1
+    getAllByPendingResponse:
+      type: object
+      example:
+        success: true
+        data:
+          - metadata: 1
+            carisId: 59482f30-5e8c-4f05-8878-6183b1cf7158
+            status: pending
+            createdAt: '2020-06-08T11:11:43.968Z'
+            email: 1
+          - metadata: 1
+            carisId: ac5e2dc6-b3b1-4ded-930f-068f4e6ebc9f
+            status: pending
+            createdAt: '2020-06-08T11:11:43.956Z'
+            email: 1
+          - metadata: 1
+            carisId: 95abc93b-fc61-4efd-8334-d27ef7bcf24b
+            status: pending
+            createdAt: '2020-06-08T11:11:43.974Z'
+            email: 1
+    getAllByInProgressResponse:
+      type: object
+      example:
+        success: true
+        data:
+          - metadata: 1
+            carisId: 59482f30-5e8c-4f05-8878-6183b1cf7158
+            status: pending
+            createdAt: '2020-06-08T11:11:43.968Z'
+            email: 1
+          - metadata: 1
+            carisId: ac5e2dc6-b3b1-4ded-930f-068f4e6ebc9f
+            status: pending
+            createdAt: '2020-06-08T11:11:43.956Z'
+            email: 1
+          - metadata: 1
+            carisId: 95abc93b-fc61-4efd-8334-d27ef7bcf24b
+            status: pending
+            createdAt: '2020-06-08T11:11:43.974Z'
+            email: 1
+    getAllByInReviewResponse:
+      type: object
+      example:
+        success: true
+        data:
+          - metadata: 1
+            carisId: 59482f30-5e8c-4f05-8878-6183b1cf7158
+            status: pending
+            createdAt: '2020-06-08T11:11:43.968Z'
+            email: 1
+          - metadata: 1
+            carisId: ac5e2dc6-b3b1-4ded-930f-068f4e6ebc9f
+            status: pending
+            createdAt: '2020-06-08T11:11:43.956Z'
+            email: 1
+          - metadata: 1
+            carisId: 95abc93b-fc61-4efd-8334-d27ef7bcf24b
+            status: pending
+            createdAt: '2020-06-08T11:11:43.974Z'
+            email: 1
+    getAllByApprovedResponse:
+      type: object
+      example:
+        success: true
+        data:
+          - metadata: 1
+            carisId: 59482f30-5e8c-4f05-8878-6183b1cf7158
+            status: pending
+            createdAt: '2020-06-08T11:11:43.968Z'
+            email: 1
+          - metadata: 1
+            carisId: ac5e2dc6-b3b1-4ded-930f-068f4e6ebc9f
+            status: pending
+            createdAt: '2020-06-08T11:11:43.956Z'
+            email: 1
+          - metadata: 1
+            carisId: 95abc93b-fc61-4efd-8334-d27ef7bcf24b
+            status: pending
+            createdAt: '2020-06-08T11:11:43.974Z'
+            email: 1
+    getAllByDoneResponse:
+      type: object
+      example:
+        success: true
+        data:
+          - metadata: 1
+            carisId: 59482f30-5e8c-4f05-8878-6183b1cf7158
+            status: pending
+            createdAt: '2020-06-08T11:11:43.968Z'
+            email: 1
+          - metadata: 1
+            carisId: ac5e2dc6-b3b1-4ded-930f-068f4e6ebc9f
+            status: pending
+            createdAt: '2020-06-08T11:11:43.956Z'
+            email: 1
+          - metadata: 1
+            carisId: 95abc93b-fc61-4efd-8334-d27ef7bcf24b
+            status: pending
+            createdAt: '2020-06-08T11:11:43.974Z'
+            email: 1
+    getAllByOpenedResponse:
+      type: object
+      example:
+        success: true
+        data:
+          - metadata: 1
+            carisId: 4e96caad-0673-4dbc-8fa1-c9705c859e5e
+            status: opened
+            createdAt: '2019-10-09T02:59:36.728Z'
+            email: 1
+    getAllBySignedResponse:
+      type: object
+      example:
+        success: true
+        data:
+          - metadata: 1
+            carisId: 4e96caad-0673-4dbc-8fa1-c9705c859e5e
+            status: opened
+            createdAt: '2019-10-09T02:59:36.728Z'
+            email: 1
+    getAllByRejectedResponse:
+      type: object
+      example:
+        success: true
+        data:
+          - metadata: 1
+            carisId: 4e96caad-0673-4dbc-8fa1-c9705c859e5e
+            status: opened
+            createdAt: '2019-10-09T02:59:36.728Z'
+            email: 1
+    getAllByUserIdResponse:
+      type: object
+      example:
+        success: true
+        data:
+          - metadata: 1
+            carisId: 4e96caad-0673-4dbc-8fa1-c9705c859e5e
+            status: opened
+            createdAt: '2019-10-09T02:59:36.728Z'
+            email: 1
+    getPDFdataResponse:
+      type: object
+      example:
+        success: true
+        data:
+          - foundOrigin:
+              - partnersContribution
+              - financing
+              - normalOperation
+              - investmentManagement
+              - movingFounds
+              - other
+            thirdPartyPicture:
+              - filename: thirdPartyPicture-1591266330105.png
+                path: "/home/aws/kyc-sdk-juridico/public/tmp/kyc/thirdPartyPicture-1591266330105.png"
+                size: 40574
+                mimetype: image/png
+                timestamp: 1591266330148
+              - filename: thirdPartyPicture-1591266330195.jpg
+                path: "/home/aws/kyc-sdk-juridico/public/tmp/kyc/thirdPartyPicture-1591266330195.jpg"
+                size: 107203
+                mimetype: image/jpeg
+                timestamp: 1591266330209
+            activities:
+              - casinos
+              - onlineGaming
+              - notary
+              - accountant
+              - carDealer
+              - realState
+              - materials
+              - armery
+              - jewelry
+              - lawyer
+            bankingReference:
+              - ref1
+              - ref2
+              - ref3
+            mainClients:
+              - client1
+              - client2
+              - client3
+            products:
+              - tc
+              - workCapital
+              - accRegular
+              - accHigh
+              - certification
+              - participationWarranty
+              - accSavings
+              - invoiceDesc
+              - creditPostal
+              - prendary
+              - leasing
+            expectedProducts:
+              - incomingTransfers
+              - outgoingTransfers
+              - checks
+              - platform
+              - operationPays
+              - creditCardsPay
+              - sallaryPay
+              - cashDeposit
+              - other
+            workDocPic: []
+            idPicFront: []
+            certificationPatrimonialPic: []
+            identificationRepresentativePic:
+              - filename: identificationRepresentativePic-1591975116522.jpg
+                path: "/home/aws/kyc-sdk-juridico/public/tmp/kyc/identificationRepresentativePic-1591975116522.jpg"
+                size: 178869
+                mimetype: image/jpeg
+                timestamp: 1591975116591
+            idPicBack:
+              - filename: idPicBack-1588753471542.jpg
+                path: "/home/aws/KYC-SDK-Cathay/public/tmp/kyc/idPicBack-1588753471542.jpg"
+                size: 134205
+                mimetype: image/jpeg
+                timestamp: 1588753471561
+            publicService: []
+            businessName: VENTA DE ROPA
+            businessOccupation: test
+            businessNature: VENTA DE ROPA
+            businessPhone: '8004626633'
+            businessRevenue: '1000,00'
+            businessCurrency: Dólares
+            businessAddress: VENTA DE ROPA
+            pep: 'true'
+            usTaxPayer: 'true'
+            fatcaTin: '3435'
+            crsTin: '3534534535'
+            crsAddress: ertetetertr
+            fepClient: 'false'
+            heritageName: erter
+            heritageRelationship: ertert
+            heritageAmount: '45,645'
+            pensionAmount: '4,646,546'
+            pensionDate: 05/11/2020
+            movingFoundsName: test
+            movingFoundsCurrency: Colones
+            movingFoundsAmount: '4,545'
+            movingFoundsDetail: details
+            otherDetail: details
+            thirtPartyFounds: 'true'
+            activitiesValidation: 'true'
+            creditCardLimit: '6,7567'
+            creditCardCurrency: Euros
+            accountCurrency: Colones
+            savingAccountCurrency: Dólares
+            highAccountCurrency: Colones
+            productDesc: details
+            estimateCreditAmount: '454'
+            estimateCreditCurrency: Dólares
+            estimateDebitAmount: '23,4234'
+            estimateDebitCurrency: Euros
+            otherProductDesc: details
+            createdAt: '2019-10-09T02:59:36.728Z'
+            signature:
+              filename: signature-4e96caad-0673-4dbc-8fa1-c9705c859e5e-f0be9dd1-46a0-4d41-9ea1-1e65de0a50b1
+              path: public/tmp/kyc/signature-4e96caad-0673-4dbc-8fa1-c9705c859e5e-f0be9dd1-46a0-4d41-9ea1-1e65de0a50b1
+              size: 0
+              timestamp: 1592376116915
+            email: 1
+    getAllAttachedResponse:
+      type: object
+      example:
+        success: true
+        data:
+          - thirdPartyPicture:
+              - filename: thirdPartyPicture-1591266330105.png
+                path: "/home/aws/kyc-sdk-juridico/public/tmp/kyc/thirdPartyPicture-1591266330105.png"
+                size: 40574
+                mimetype: image/png
+                timestamp: 1591266330148
+              - filename: thirdPartyPicture-1591266330195.jpg
+                path: "/home/aws/kyc-sdk-juridico/public/tmp/kyc/thirdPartyPicture-1591266330195.jpg"
+                size: 107203
+                mimetype: image/jpeg
+                timestamp: 1591266330209
+            workDocPic: []
+            idPicFront: []
+            certificationPatrimonialPic: []
+            identificationRepresentativePic:
+              - filename: identificationRepresentativePic-1591975116522.jpg
+                path: "/home/aws/kyc-sdk-juridico/public/tmp/kyc/identificationRepresentativePic-1591975116522.jpg"
+                size: 178869
+                mimetype: image/jpeg
+                timestamp: 1591975116591
+            idPicBack:
+              - filename: idPicBack-1588753471542.jpg
+                path: "/home/aws/KYC-SDK-Cathay/public/tmp/kyc/idPicBack-1588753471542.jpg"
+                size: 134205
+                mimetype: image/jpeg
+                timestamp: 1588753471561
+            publicService: []
+            signature:
+              filename: signature-4e96caad-0673-4dbc-8fa1-c9705c859e5e-f0be9dd1-46a0-4d41-9ea1-1e65de0a50b1
+              path: public/tmp/kyc/signature-4e96caad-0673-4dbc-8fa1-c9705c859e5e-f0be9dd1-46a0-4d41-9ea1-1e65de0a50b1
+              size: 0
+              timestamp: 1592376116915
+    getAdditionalSignersResponse:
+      type: object
+      example:
+        success: true
+        message: user found
+        data:
+          additionalSigners:
+            - name: Remedios Wolf
+              lastname: Wilder
+              secondLastname: Ellison
+              idType: dimex
+              idNumber: '243'
+              idExpirationDate: 04/28/2020
+              dob: 04/28/2020
+              countryOB: KP
+              nationality: UM
+              sex: Mujer
+              homePhone: '8004626633'
+              cellPhone: '8004626633'
+              fax: '2527788'
+              email: gudefyli@mailinator.com
+          _id: 5ed8cb3746bcfd27d039096b
+
+    setPrimaryCustomerInformation:
+      type: object
+      required:
+        - carisId
+      properties:
+        carisId:
+          type: string
+      example:
+        carisId: 4e96caad-0673-4dbc-8fa1-c9705c859e5e
+        companyRegistrationName: Wilson Taylor Inc
+        tradeName: Nehru Mendez
+        legalId: '1234567890'
+        constitutionDate: 05/14/2020
+        typeOfLegalEntity: Sociedad de Responsabilidad Limitada
+        typeOfLegalEntityOther: ''
+        typeOfEconomicActivity: Comercial
+        economicActivityDetail: Mollitia est sint v
+        companyFound: 'false'
+        companyCountryResidence: Nicaragua
+        companyProvince: Heredia
+        companyCanton: Iste iusto velit rem
+        companyDistrit: dhaka
+        companyPoBox: '7777'
+        companyAddress: Heredia San Franci
+        additionalRepresentative:
+          - name: Jessica
+            lastname: Shaffer
+            secondLastname: Stephens
+            idType: dimex
+            idNumber: '306'
+            idExpirationDate: 04/28/2020
+            dob: 04/28/2020
+            countryOB: EC
+            nationality: GU
+            sex: Mujer
+            homePhone: '04626633'
+            cellPhone: '80046268'
+            fax: '25277888'
+            email: ruka54645w@mailinator.net
+            profession: Facilis voluptate qu
+            occupation: engineeer
+            maritalStatus: Union Libre
+            countryResidence: Mexico
+            province: Aut nesciunt totam
+            canton: Error tempora aut consect
+            distrit: Omnis ipsum ut consequat
+            poBox: '1004'
+            address: Et qui in quo conseq
+          - name: Kellie Blake
+            lastname: Morton
+            secondLastname: Johns
+            idType: dimex
+            idNumber: '6786786786'
+            idExpirationDate: 07/01/2020
+            dob: 07/02/2020
+            countryOB: AG
+            nationality: AI
+            sex: Hombre
+            homePhone: '04626633'
+            cellPhone: '04626633'
+            fax: '22203239'
+            email: jokepypi@mailinator.net
+            profession: Quia accusamus nisi
+            occupation: engineer
+            maritalStatus: Divorciado
+            countryResidence: Nicaragua
+            province: Aut nesciunt totam
+            canton: Iste iusto velit rem
+            distrit: Excepturi dolorem so
+            poBox: '1004'
+            address: Veniam minus odit r
+          - name: Inga Bray
+            lastname: Newman
+            secondLastname: CETZTFP
+            idType: cédula
+            idNumber: 090909090
+            idExpirationDate: 05/29/2020
+            dob: 05/28/2020
+            countryOB: AI
+            nationality: AL
+            sex: Mujer
+            homePhone: '04626633'
+            cellPhone: '04626633'
+            fax: '34534534'
+            email: tuwyryx@mailinator.net
+            profession: Elit eos et reicie
+            occupation: engineer
+            maritalStatus: Union Libre
+            countryResidence: Nicaragua
+            province: Heredia
+            canton: Iste iusto velit rem
+            distrit: dhaka
+            poBox: '7777'
+            address: Heredia San Franci
+            secundaryEmail: ''
+tags:
+  - name: Login
+    description: Authorization
+  - name: Step 1
+    description: Primary Representative
+  - name: Step 2
+    description: Representatives
+  - name: Step 3
+    description: Political Information
+  - name: Step 4
+    description: Found Origins
+  - name: Step 5
+    description: Banking References
+  - name: Step 6
+    description: Expected Activity
+  - name: Step 7
+    description: Upload Files
+  - name: Step 8
+    description: Signature
+  - name: Caris Reports
+    description: Reports By Status
+  - name: Misc
+    description: Miscellaneous / Supporting Requests

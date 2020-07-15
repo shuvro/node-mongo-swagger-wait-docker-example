@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"kyc.kycs"}],"uuid":"fe611e48498c473ab6aed85a1bad383c"}
